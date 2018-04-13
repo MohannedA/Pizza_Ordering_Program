@@ -14,7 +14,8 @@ public interface Order {
     /**
      * This method is to show the calculated delivery time.
      * @param meals - Array of meals which their delivery time will be calculated. 
-     * @return - The total delivery time. 
      */
     public abstract void showDeliveryTime(Meal[] meals);
+    
+    
 }
