@@ -4,8 +4,8 @@
  * @author Mohanned Ahmed
  */
 public class Customer extends Person {
-    private int ID;
-    private int area;
+    private int ID; // Customer's ID 
+    private int area; // Customer's area. 
 
     public Customer(int ID, int area) {
         this.ID = ID;
