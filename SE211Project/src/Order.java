@@ -12,9 +12,9 @@ public interface Order {
     public abstract int getCalculatedTotalPrice(Meal[] meals);
     
     /**
-     * This method is to calculate and return the delivery time.
+     * This method is to show the calculated delivery time.
      * @param meals - Array of meals which their delivery time will be calculated. 
      * @return - The total delivery time. 
      */
-    public abstract int showDeliveryTime(Meal[] meals);
+    public abstract void showDeliveryTime(Meal[] meals);
 }
