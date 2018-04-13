@@ -2,11 +2,11 @@
  *
  * @author Mohanned Ahmed
  */
-public class Drink {
+public class Pizza {
     private String name;
-    private int size; // The size should be either 1, 2, or 3.
+    private int size; // The should be either 1, 2, or 3.  
 
-    public Drink(String name, int size) {
+    public Pizza(String name, int size) {
         this.name = name;
         this.size = size;
     }
@@ -22,7 +22,7 @@ public class Drink {
     public int getSize() {
         return size;
     }
-    
+
     public void setSize(int size) {
         this.size = size;
     }
