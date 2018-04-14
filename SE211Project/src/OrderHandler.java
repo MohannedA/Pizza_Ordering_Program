@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author Mohanned Ahmed
  */
-public class OrderHandler implements Order{
+public class OrderHandler implements OrderHandlerInterface{
 
     public OrderHandler() {}
     
