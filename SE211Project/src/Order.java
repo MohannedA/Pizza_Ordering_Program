@@ -118,19 +118,20 @@ public class Order {
                 drinkDeliveryTime = drinkMenuItems.get(i).getEstimatedDeliveryTime();
             }
         }
-        // If the ordered pizza is not on the menu.
-        if (!isPizzaExistInMenu) 
-            System.out.println("The pizza " + pizzaName + " is not on the menu...Try Agin");
-        // If the ordered drink is not on the menu.
-        else if (!isDrinkExistInMenu)
-            System.out.println("The drink " + drinkName + " is not on the menu...Try Agin");
         // Both pizza and drink exist.
-        else { 
+        if (isDrinkExistInMenu && isPizzaExistInMenu) { 
             // Add ordered pizza and orderd drink.
             Pizza orderedPizza = new Pizza(pizzaName, pizzaPrice, pizzaDeliveryTime);
             Drink orderedDrink = new Drink(drinkName,drinkPrice, drinkDeliveryTime);
             meals.add(new Meal(orderedPizza, orderedDrink));
             System.out.println("Your order is added");
+        }
+        // If the ordered drink is not on the menu.
+        else if (!isDrinkExistInMenu)
+            System.out.println("The drink " + drinkName + " is not on the menu...Try Agin");
+        // If the ordered pizza is not on the menu.
+        else if (!isPizzaExistInMenu) { 
+            System.out.println("The pizza " + pizzaName + " is not on the menu...Try Agin");
         }
            
     } 
@@ -177,8 +178,10 @@ public class Order {
                     break;
                 case 3:
                     // Remove last meal if list is not empty, otherwise inform the user that is empty.
-                    if (!meals.isEmpty())
+                    if (!meals.isEmpty()) {
                         meals.remove(meals.size()-1);
+                        System.out.println("You removed the last ordered meal.");
+                    }
                     else 
                         System.out.println("You cannot remove last meal because list is already empty.");
                     break;
