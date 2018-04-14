@@ -1,0 +1,5 @@
+Name	 	Price	Est.Time(min)
+Margherita	12	10 
+Pepperoni	11	12
+Vegetable	13	15
+Supreme	14 	8

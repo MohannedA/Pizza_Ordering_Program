@@ -1,0 +1,4 @@
+Name	 Price	Est.Time(min)
+Apple	 8	2
+Orange 8	3
+Lemon  9	2
