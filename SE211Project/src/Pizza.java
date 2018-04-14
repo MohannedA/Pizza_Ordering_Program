@@ -4,13 +4,13 @@
  */
 public class Pizza {
     private String name;
-    private int size; // Size should be either 1, 2, or 3.  
     private int price;
+    private int estimatedDeliveryTime;
 
-    public Pizza(String name, int size, int price) {
+    public Pizza(String name, int price, int estimatedDeliveryTime) {
         this.name = name;
-        this.size = size;
         this.price = price;
+        this.estimatedDeliveryTime = estimatedDeliveryTime;
     }
 
     public String getName() {
@@ -21,14 +21,6 @@ public class Pizza {
         this.name = name;
     }
 
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
     public int getPrice() {
         return price;
     }
@@ -36,5 +28,20 @@ public class Pizza {
     public void setPrice(int price) {
         this.price = price;
     }
+
+    public int getEstimatedDeliveryTime() {
+        return estimatedDeliveryTime;
+    }
+
+    public void setEstimatedDeliveryTime(int estimatedDeliveryTime) {
+        this.estimatedDeliveryTime = estimatedDeliveryTime;
+    }
+
+    @Override
+    public String toString() {
+        return "name= " + name + ", price= " + price + ", estimatedDeliveryTime= " + estimatedDeliveryTime;
+    }
+
+
     
 }
