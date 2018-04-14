@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
- *
+ * To handle orders process such as calculate the total price
  * @author Mohanned Ahmed
  */
 public class OrderHandler implements OrderHandlerInterface{
@@ -17,8 +17,8 @@ public class OrderHandler implements OrderHandlerInterface{
     @Override
     public int getCalculatedTotalPrice(ArrayList<Meal> meals) {
         int totalPrice = 0;
-        for (Meal meal: meals) {
-            totalPrice += meal.getPrice();
+        for (int i = 0; i < meals.size(); i++) {
+            totalPrice += meals.get(i).getPrice();
         }
         return totalPrice;
     }
@@ -26,8 +26,8 @@ public class OrderHandler implements OrderHandlerInterface{
     @Override
     public int getEstimatedDeliveryTime(ArrayList<Meal> meals) {
         int estimatedDeliveryTime = 0;
-        for (Meal meal: meals) {
-            estimatedDeliveryTime += meal.getEstimatedDeliveryTime();
+        for (int i = 0; i < meals.size(); i++) {
+            estimatedDeliveryTime += meals.get(i).getEstimatedDeliveryTime();
         }
         return estimatedDeliveryTime;
     }

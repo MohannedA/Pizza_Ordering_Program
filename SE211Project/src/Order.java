@@ -196,6 +196,5 @@ public class Order {
         displayMeals();
         System.out.println("The Total Price is " + orderHandler.getCalculatedTotalPrice(meals));
         System.out.println("The Estimated Delivery Time is " + orderHandler.getEstimatedDeliveryTime(meals));
-    }
-    
+    } 
 }
