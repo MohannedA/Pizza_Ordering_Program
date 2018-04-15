@@ -44,9 +44,9 @@ public class Order {
      */
     private static void showInstructions() {
         System.out.println("\nPress ");
-        System.out.println("\t 1- To display the list of items.");
-        System.out.println("\t 2- To add an item to the list.");
-        System.out.println("\t 3- To remove the last item from the list.");
+        System.out.println("\t 1- To display the list of orders.");
+        System.out.println("\t 2- To add an order to the list.");
+        System.out.println("\t 3- To remove the last order from the list.");
         System.out.println("\t 4- To save the orders adn quit.");
     }
     
@@ -171,14 +171,14 @@ public class Order {
     
     public static void main(String[] args) {
         
-        // To handle the orders processes. 
-        OrderHandler orderHandler = new OrderHandler();
+        // To do orders calculations. 
+        OrdersCalculator orderHandler = new OrdersCalculator();
         
         // Obtain the pizza menu items.
-        pizzaMenuItems = orderHandler.getObtainedPizzaMenu("pizzaMenu.txt");
+        pizzaMenuItems = Pizza.getObtainedPizzaMenu("pizzaMenu.txt");
         
         // Obtain the drink menu items.
-        drinkMenuItems = orderHandler.getObtainedDrinkMenu("drinkMenu.txt");
+        drinkMenuItems = Drink.getObtainedDrinkMenu("drinkMenu.txt");
         
         // Show the system introtduction. 
         showSystemIntro();
