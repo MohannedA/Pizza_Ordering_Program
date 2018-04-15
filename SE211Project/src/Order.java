@@ -89,7 +89,13 @@ public class Order {
         } while (continueInput);
     }
     
-    private static void addMeal() {
+    /**
+     * This method is to add new order to the ordered meals. 
+     * @param pizzaMenuItems The array which will check the new order pizza according to it. 
+     * @param drinkMenuItems The array which will check the new order drink according to it.
+     * @param meals The array which the new order will be added to it.
+     */
+    private static void addOrder(ArrayList<Pizza> pizzaMenuItems, ArrayList<Drink> drinkMenuItems, ArrayList<Meal> meals) {
         // Pizza  Var. 
         boolean isPizzaExistInMenu = false;
         int pizzaPrice = 0;
@@ -135,8 +141,11 @@ public class Order {
         }
            
     } 
-    
-    private static void displayMeals() {
+    /**
+     * This method is to display all the orders in the ordered meals.
+     * @param meals The array which will its content will be displayed.
+     */
+    private static void displayOrders(ArrayList<Meal> meals) {
         if (!meals.isEmpty()) {
             for (int i = 0; i < meals.size(); i++) {
                 System.out.println("Meal " + (i+1) + " contains: " + meals.get(i).getPizza().getName() + " Pizza & " +
@@ -145,6 +154,19 @@ public class Order {
         } else {
             System.out.println("Your orders list is empty.");
         }
+    }
+    
+    /**
+     * This method is to remove last order from list of meals. 
+     */
+    private static void removeLastOrder() {
+        // Remove last meal if list is not empty, otherwise inform the user that is empty.
+        if (!meals.isEmpty()) {
+            meals.remove(meals.size()-1);
+            System.out.println("You removed the last ordered meal.");
+        }
+        else 
+            System.out.println("You cannot remove last meal because list is already empty.");
     }
     
     public static void main(String[] args) {
@@ -171,19 +193,13 @@ public class Order {
         while (customerChoice != 4) {
             switch (customerChoice) {
                 case 1: // Display the ordered meals.
-                    displayMeals();
+                    displayOrders(meals);
                     break;
-                case 2: // Add new meal.
-                    addMeal();
+                case 2: // Add new order meal.
+                    addOrder(pizzaMenuItems, drinkMenuItems, meals);
                     break;
-                case 3:
-                    // Remove last meal if list is not empty, otherwise inform the user that is empty.
-                    if (!meals.isEmpty()) {
-                        meals.remove(meals.size()-1);
-                        System.out.println("You removed the last ordered meal.");
-                    }
-                    else 
-                        System.out.println("You cannot remove last meal because list is already empty.");
+                case 3: // Remove last order meal.
+                    removeLastOrder();
                     break;
                 default:
                     // Show the system instructions if user enter number that is not in instructions list
@@ -196,7 +212,7 @@ public class Order {
         System.out.println("\nThank you for ordring from us.");
         System.out.println("\nYou Ordered:\n");
         // To show the meals.
-        displayMeals();
+        displayOrders(meals);
         System.out.println("The Total Price is " + orderHandler.getCalculatedTotalPrice(meals));
         System.out.println("The Estimated Delivery Time is " + orderHandler.getEstimatedDeliveryTime(meals));
     } 
