@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @author Mohanned Ahmed
  */
 public class Order {
-    // Is used to store the ordered meals.
+    // To store the ordered meals.
     private static ArrayList<Meal> meals = new ArrayList<Meal>(); 
     // To store the menu pizza itames that obtaiend from pizza menu txt file.
     private static ArrayList<Pizza> pizzaMenuItems; 
@@ -18,7 +18,7 @@ public class Order {
     private static String pizzaName;
     private static String drinkName;
     // Define scanner to read customers orders, etc.
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
      
     /**
      * This method is to show system introduction such as welcome statement. 
@@ -30,7 +30,7 @@ public class Order {
         for (int i = 0; i < pizzaMenuItems.size(); i++) {
             System.out.println(pizzaMenuItems.get(i).toString());
         }
-        // To sprate the menues
+        // Sprate the menues.
         System.out.println("\n----------------------------\n");
         // Show the drinks menu.
         System.out.println("Drinks Menu");
@@ -62,12 +62,12 @@ public class Order {
                 continueInput = false;
             } catch (InputMismatchException ex) {
                 System.out.println("You should enter it correctly...Try again:");
-                // Show the fprmat agin. 
+                // Show the format agin. 
                 System.out.println("Enter your orders in the format: <PizzaName> <DrinkName>");
                 // Discard the bad input. 
                 scanner.nextLine();
             }
-        } while (continueInput);
+        } while (continueInput); // Loop until the user enters it correctly.
     }
     
     /**
@@ -86,7 +86,7 @@ public class Order {
                 // Discard the bad input. 
                 scanner.nextLine();
             }
-        } while (continueInput);
+        } while (continueInput); // Loop until the user enters it correctly. 
     }
     
     /**
@@ -105,10 +105,11 @@ public class Order {
         int drinkPrice = 0;
         int drinkDeliveryTime = 0;        
         System.out.println("Enter your orders in the format: <PizzaName> <DrinkName>");
+        
         // To handle customer input.
         handleCustomerAddMealInput();
         
-        // Check if pizza exit in the menu.
+        // Check if pizza exit in the menu. If so, store the pizza prica and est. delivery time.
         for (int i = 0; i < pizzaMenuItems.size(); i++) {
             if (pizzaMenuItems.get(i).getName().equalsIgnoreCase(pizzaName)) {
                 isPizzaExistInMenu = true;
@@ -116,7 +117,7 @@ public class Order {
                 pizzaDeliveryTime = pizzaMenuItems.get(i).getEstimatedDeliveryTime();
             }
         }
-        // Check if the drink exit in the menu.
+        // Check if the drink exit in the menu. If so, store the drink prica and est. delivery time. 
         for (int i = 0; i < drinkMenuItems.size(); i++) {
             if (drinkMenuItems.get(i).getName().equalsIgnoreCase(drinkName)) {
                 isDrinkExistInMenu = true;
@@ -172,7 +173,7 @@ public class Order {
     public static void main(String[] args) {
         
         // To do orders calculations. 
-        OrdersCalculator orderHandler = new OrdersCalculator();
+        OrdersCalculator ordersCalculator = new OrdersCalculator();
         
         // Obtain the pizza menu items.
         pizzaMenuItems = Pizza.getObtainedPizzaMenu("pizzaMenu.txt");
@@ -189,7 +190,7 @@ public class Order {
         System.out.println("What do want to do?");
         // To handle customer input.
         handleCustomerChoiceInput();
-        // Loop until quit (Enter 4) is pressed.  
+        // Loop until quit (4 is entered) is pressed.  
         while (customerChoice != 4) {
             switch (customerChoice) {
                 case 1: // Display the ordered meals.
@@ -201,19 +202,21 @@ public class Order {
                 case 3: // Remove last order meal.
                     removeLastOrder();
                     break;
-                default:
-                    // Show the system instructions if user enter number that is not in instructions list
+                default: // Show the system instructions if user enter number that is not in instructions list.
                     showInstructions();
             }
             System.out.println("What do want to do?");
             // To handle customer input.
             handleCustomerChoiceInput();
         }
+        // Display the final result. 
         System.out.println("\nThank you for ordring from us.");
         System.out.println("\nYou Ordered:\n");
-        // To show the meals.
+        // Display the meals.
         displayOrders(meals);
-        System.out.println("The Total Price is " + orderHandler.getCalculatedTotalPrice(meals));
-        System.out.println("The Estimated Delivery Time is " + orderHandler.getEstimatedDeliveryTime(meals));
+        // Diaplay the total price.
+        System.out.println("The Total Price is " + ordersCalculator.getCalculatedTotalPrice(meals));
+        // Display the estimated delivery time. 
+        System.out.println("The Estimated Delivery Time is " + ordersCalculator.getEstimatedDeliveryTime(meals));
     } 
 }
