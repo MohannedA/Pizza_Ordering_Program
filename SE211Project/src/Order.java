@@ -193,11 +193,11 @@ public class Order {
         }
         // Display the final result. 
         System.out.println("\nThank you for ordring from us.");
-        System.out.println("\nYou Ordered:\n");
+        System.out.println("\nYou Ordered:");
         // Display the meals.
         displayOrders();
         // Diaplay the total price.
-        System.out.println("The Total Price is " + ordersCalculator.getCalculatedTotalPrice(meals));
+        System.out.println("\nThe Total Price is " + ordersCalculator.getCalculatedTotalPrice(meals));
         // Display the estimated delivery time. 
         System.out.println("The Estimated Delivery Time is " + ordersCalculator.getEstimatedDeliveryTime(meals));
     } 
