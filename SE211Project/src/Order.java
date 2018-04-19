@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 /**
- *
+ * This is the main class (contains main method).  
  * @author Mohanned Ahmed
  */
 public class Order {
@@ -95,7 +95,7 @@ public class Order {
      * @param drinkMenuItems The array which will check the new order drink according to it.
      * @param meals The array which the new order will be added to it.
      */
-    private static void addOrder(ArrayList<Pizza> pizzaMenuItems, ArrayList<Drink> drinkMenuItems, ArrayList<Meal> meals) {
+    private static void addOrder() {
         // Pizza  Var. 
         boolean isPizzaExistInMenu = false;
         int pizzaPrice = 0;
@@ -103,10 +103,11 @@ public class Order {
         // Drink Var.
         boolean isDrinkExistInMenu = false;
         int drinkPrice = 0;
-        int drinkDeliveryTime = 0;        
-        System.out.println("Enter your orders in the format: <PizzaName> <DrinkName>");
+        int drinkDeliveryTime = 0;
         
-        // To handle customer input.
+        System.out.println("Enter your order in the format: <PizzaName> <DrinkName>.");
+        
+        // To handle customer's input.
         handleCustomerAddMealInput();
         
         // Check if pizza exit in the menu. If so, store the pizza prica and est. delivery time.
@@ -134,19 +135,19 @@ public class Order {
             System.out.println("Your order is added");
         }
         // If the ordered drink is not on the menu.
-        else if (!isDrinkExistInMenu)
-            System.out.println("The drink " + drinkName + " is not on the menu...Try Agin");
+        if (!isDrinkExistInMenu)
+            System.out.println("The drink " + drinkName + " is not on the menu...Try Again.");
         // If the ordered pizza is not on the menu.
-        else if (!isPizzaExistInMenu) { 
-            System.out.println("The pizza " + pizzaName + " is not on the menu...Try Agin");
-        }
+        if (!isPizzaExistInMenu) { 
+            System.out.println("The pizza " + pizzaName + " is not on the menu...Try Again.");
+        }  
            
     } 
     /**
      * This method is to display all the orders in the ordered meals.
      * @param meals The array which will its content will be displayed.
      */
-    private static void displayOrders(ArrayList<Meal> meals) {
+    private static void displayOrders() {
         if (!meals.isEmpty()) {
             for (int i = 0; i < meals.size(); i++) {
                 System.out.println("Meal " + (i+1) + " contains: " + meals.get(i).getPizza().getName() + " Pizza & " +
@@ -194,10 +195,10 @@ public class Order {
         while (customerChoice != 4) {
             switch (customerChoice) {
                 case 1: // Display the ordered meals.
-                    displayOrders(meals);
+                    displayOrders();
                     break;
                 case 2: // Add new order meal.
-                    addOrder(pizzaMenuItems, drinkMenuItems, meals);
+                    addOrder();
                     break;
                 case 3: // Remove last order meal.
                     removeLastOrder();
@@ -213,7 +214,7 @@ public class Order {
         System.out.println("\nThank you for ordring from us.");
         System.out.println("\nYou Ordered:\n");
         // Display the meals.
-        displayOrders(meals);
+        displayOrders();
         // Diaplay the total price.
         System.out.println("The Total Price is " + ordersCalculator.getCalculatedTotalPrice(meals));
         // Display the estimated delivery time. 
