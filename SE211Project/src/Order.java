@@ -51,26 +51,6 @@ public class Order {
     }
     
     /**
-     * To handle customer add meal input and if customer inputs something which is not int.
-     */
-    private static void handleCustomerAddMealInput() {
-        boolean continueInput = true;
-        do {
-            try {
-                pizzaName = scanner.next();
-                drinkName = scanner.next();
-                continueInput = false;
-            } catch (InputMismatchException ex) {
-                System.out.println("You should enter it correctly...Try again:");
-                // Show the format agin. 
-                System.out.println("Enter your orders in the format: <PizzaName> <DrinkName>");
-                // Discard the bad input. 
-                scanner.nextLine();
-            }
-        } while (continueInput); // Loop until the user enters it correctly.
-    }
-    
-    /**
      * To handle customer choice input and if customer inputs something which is not int.
      */
     private static void handleCustomerChoiceInput() {
@@ -107,8 +87,9 @@ public class Order {
         
         System.out.println("Enter your order in the format: <PizzaName> <DrinkName>.");
         
-        // To handle customer's input.
-        handleCustomerAddMealInput();
+        // Get customer's input. 
+        pizzaName = scanner.next();
+        drinkName = scanner.next();
         
         // Check if pizza exit in the menu. If so, store the pizza prica and est. delivery time.
         for (int i = 0; i < pizzaMenuItems.size(); i++) {
