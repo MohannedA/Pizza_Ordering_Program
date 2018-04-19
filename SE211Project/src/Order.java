@@ -170,7 +170,7 @@ public class Order {
         showInstructions();
         
         System.out.println("What do want to do?");
-        // To handle customer input.
+        // To handle customer's input.
         handleCustomerChoiceInput();
         // Loop until quit (4 is entered) is pressed.  
         while (customerChoice != 4) {
@@ -188,7 +188,7 @@ public class Order {
                     showInstructions();
             }
             System.out.println("What do want to do?");
-            // To handle customer input.
+            // To handle customer's input.
             handleCustomerChoiceInput();
         }
         // Display the final result. 

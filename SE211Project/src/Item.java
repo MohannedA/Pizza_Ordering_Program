@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author Mohanned Ahmed
@@ -45,6 +39,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return "name= " + name + ", price= " + price + ", estimatedDeliveryTime= " + estimatedDeliveryTime;
+        return String.format("Name: %-20s | Price: %-20d | Estimated Delivery Time(Min): %d", name, price, estimatedDeliveryTime);
     }
 }

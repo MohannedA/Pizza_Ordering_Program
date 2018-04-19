@@ -1,11 +1,7 @@
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Mohanned Ahmed
@@ -53,7 +49,7 @@ public class Drink extends Item{
                obtainedDrinkMenu.add(drink);
            }
        } catch (FileNotFoundException ex) { // File is not found.
-           Logger.getLogger(OrdersCalculator.class.getName()).log(Level.SEVERE, null, ex);
+           System.out.println("Menu file is not found.");
        }
        return obtainedDrinkMenu;
    }

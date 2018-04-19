@@ -2,9 +2,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  * To do the calculations related to orders such as calculate the total price.
  * @author Mohanned Ahmed - 215110114
