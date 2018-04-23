@@ -2,8 +2,9 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 /**
- * This is the main class (contains main method).  
- * @author Mohanned Ahmed
+ * This is the main class(contains main method).
+ * @author MHD.Makeen AlDamouni - 215110141
+ * @author Mohanned Ahmed - 215110114
  */
 public class Order {
     // To store the ordered meals.

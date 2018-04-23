@@ -3,8 +3,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
- *
- * @author Mohanned Ahmed
+ * @author MHD.Makeen AlDamouni - 215110141
+ * @author Mohanned Ahmed - 215110114
  */
 public class Pizza extends Item {
     public Pizza(String name, int price, int estimatedDeliveryTime) {

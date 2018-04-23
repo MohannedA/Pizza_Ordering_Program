@@ -1,7 +1,6 @@
 /**
- * 
- *
- * @author Mohanned Ahmed
+ * @author MHD.Makeen AlDamouni - 215110141
+ * @author Mohanned Ahmed - 215110114
  */
 public class Meal {
     private Pizza pizza; 

@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 /**
  * To do the calculations related to orders such as calculate the total price.
- * @author Mohanned Ahmed
+ * @author MHD.Makeen AlDamouni - 215110141
+ * @author Mohanned Ahmed - 215110114
  */
 public interface OrdersCalculatorInterface {
     
