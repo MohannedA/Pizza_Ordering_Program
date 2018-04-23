@@ -7,24 +7,18 @@ import java.util.Scanner;
  * @author Mohanned Ahmed - 215110114
  */
 public class Order {
-    // To store the ordered meals.
-    private static ArrayList<Meal> meals = new ArrayList<Meal>(); 
-    // To store the menu pizza itames that obtaiend from pizza menu txt file.
-    private static ArrayList<Pizza> pizzaMenuItems; 
-    // To store the menu drink itames that obtaiend from drink menu txt file.
-    private static ArrayList<Drink> drinkMenuItems; 
-    
-    // Var. to use in csutomer input.
-    private static int customerChoice = 0;
-    private static String pizzaName;
-    private static String drinkName;
     // Define scanner to read customers orders, etc.
-    private static final Scanner scanner = new Scanner(System.in);
-     
+    private static final Scanner scanner = new Scanner(System.in); 
+    
+    // To use in csutomer's input.
+    private static int customerChoice = 0;
+    
     /**
      * This method is to show system introduction such as welcome statement. 
+     * @param pizzaMenuItems The array which its content(the pizza menu) will be displayed. 
+     * @param drinkMenuItems The array which its content(the drink menu) will be displayed.
      */
-    private static void showSystemIntro() {
+    private static void showSystemIntro(ArrayList<Pizza> pizzaMenuItems, ArrayList<Drink> drinkMenuItems) {
         System.out.println("Welcome to our pizza ordring application\n");
         // Show the pizza menu.
         System.out.println("Pizza Menu");
@@ -76,12 +70,15 @@ public class Order {
      * @param drinkMenuItems The array which will check the new order drink according to it.
      * @param meals The array which the new order will be added to it.
      */
-    private static void addOrder() {
+    private static void addOrder(ArrayList<Pizza> pizzaMenuItems, ArrayList<Drink> drinkMenuItems, 
+            ArrayList<Meal> meals) {
         // Pizza  Var. 
+        String pizzaName;
         boolean isPizzaExistInMenu = false;
         int pizzaPrice = 0;
         int pizzaDeliveryTime = 0;
         // Drink Var.
+        String drinkName;
         boolean isDrinkExistInMenu = false;
         int drinkPrice = 0;
         int drinkDeliveryTime = 0;
@@ -129,7 +126,7 @@ public class Order {
      * This method is to display all the orders in the ordered meals.
      * @param meals The array which will its content will be displayed.
      */
-    private static void displayOrders() {
+    private static void displayOrders(ArrayList<Meal> meals) {
         if (!meals.isEmpty()) {
             for (int i = 0; i < meals.size(); i++) {
                 System.out.println("Meal " + (i+1) + " contains: " + meals.get(i).getPizza().getName() + " Pizza & " +
@@ -141,9 +138,10 @@ public class Order {
     }
     
     /**
-     * This method is to remove last order from list of meals. 
+     * This method is to remove last order from list of meals.
+     * @param meals The array in which last meal of it will be removed. 
      */
-    private static void removeLastOrder() {
+    private static void removeLastOrder(ArrayList<Meal> meals) {
         // Remove last meal if list is not empty, otherwise inform the user that is empty.
         if (!meals.isEmpty()) {
             meals.remove(meals.size()-1);
@@ -155,6 +153,13 @@ public class Order {
     
     public static void main(String[] args) {
         
+        // To store the ordered meals.
+        ArrayList<Meal> meals = new ArrayList<Meal>(); 
+        // To store the menu pizza itames that obtaiend from pizza menu txt file.
+        ArrayList<Pizza> pizzaMenuItems; 
+        // To store the menu drink itames that obtaiend from drink menu txt file.
+        ArrayList<Drink> drinkMenuItems; 
+        
         // To do orders calculations. 
         OrdersCalculator ordersCalculator = new OrdersCalculator();
         
@@ -165,7 +170,7 @@ public class Order {
         drinkMenuItems = Drink.getObtainedDrinkMenu("drinkMenu.txt");
         
         // Show the system introtduction. 
-        showSystemIntro();
+        showSystemIntro(pizzaMenuItems, drinkMenuItems);
         
         // Show the system instructions.
         showInstructions();
@@ -177,13 +182,13 @@ public class Order {
         while (customerChoice != 4) {
             switch (customerChoice) {
                 case 1: // Display the ordered meals.
-                    displayOrders();
+                    displayOrders(meals);
                     break;
                 case 2: // Add new order meal.
-                    addOrder();
+                    addOrder(pizzaMenuItems, drinkMenuItems, meals);
                     break;
                 case 3: // Remove last order meal.
-                    removeLastOrder();
+                    removeLastOrder(meals);
                     break;
                 default: // Show the system instructions if user enter number that is not in instructions list.
                     showInstructions();
@@ -196,7 +201,7 @@ public class Order {
         System.out.println("\nThank you for ordring from us.");
         System.out.println("\nYou Ordered:");
         // Display the meals.
-        displayOrders();
+        displayOrders(meals);
         // Diaplay the total price.
         System.out.println("\nThe Total Price is " + ordersCalculator.getCalculatedTotalPrice(meals));
         // Display the estimated delivery time. 
